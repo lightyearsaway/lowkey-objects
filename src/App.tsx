@@ -12,6 +12,8 @@ import { Dropdown } from "antd";
 import ActionsMenu from "./ActionsMenu";
 import { getNextId } from "./utils";
 
+const isMac = navigator.platform.indexOf("Mac") > -1;
+
 const getOtherColor = (color: Color) =>
   color === Color.RED ? Color.BLUE : Color.RED;
 
@@ -108,6 +110,8 @@ function App() {
         return;
       }
 
+      const ctrlOrCommand = isMac ? e.metaKey : e.ctrlKey;
+
       // only on left click
       if (e.type === "click") {
         if (e.shiftKey) {
@@ -117,7 +121,7 @@ function App() {
               e.target.dataset.idx || e.target.parentElement?.dataset.idx
             ),
           });
-        } else if (e.ctrlKey || e.metaKey) {
+        } else if (ctrlOrCommand) {
           dispatch({
             type: ObjectActionType.TOGGLE_SINGLE,
             id: Number(
