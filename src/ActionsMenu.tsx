@@ -16,6 +16,7 @@ interface Props {
   id: number;
   isSetRedEnabled: boolean;
   isSetBlueEnabled: boolean;
+  numSelectedObjects: number;
 }
 
 const ActionsMenu: React.FC<Props> = ({
@@ -23,6 +24,7 @@ const ActionsMenu: React.FC<Props> = ({
   id,
   isSetRedEnabled,
   isSetBlueEnabled,
+  numSelectedObjects,
 }) => {
   const onDelete = React.useCallback(() => {
     dispatch({
@@ -54,7 +56,8 @@ const ActionsMenu: React.FC<Props> = ({
   return (
     <Menu>
       <Menu.Item onClick={onDelete} key="delete">
-        Delete
+        Delete {numSelectedObjects}{" "}
+        {numSelectedObjects !== 1 ? "objects" : "object"}
       </Menu.Item>
       <Menu.Item disabled={!isSetRedEnabled} key="set-red" onClick={setRed}>
         <div css={menuItemWrapperStyle}>

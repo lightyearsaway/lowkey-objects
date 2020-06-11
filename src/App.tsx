@@ -153,6 +153,11 @@ function App() {
     (obj) => obj.selected && obj.color !== Color.BLUE
   );
 
+  const numSelectedObjects = objects.reduce(
+    (acc, obj) => (obj.selected ? acc + 1 : acc),
+    0
+  );
+
   return (
     <div css={{ background: "#222", minHeight: "100vh" }}>
       <div
@@ -172,6 +177,7 @@ function App() {
                 id={obj.id}
                 isSetRedEnabled={isSetRedEnabled}
                 isSetBlueEnabled={isSetBlueEnabled}
+                numSelectedObjects={numSelectedObjects}
               />
             }
             trigger={["contextMenu"]}
