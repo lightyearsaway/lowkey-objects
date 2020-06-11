@@ -117,7 +117,7 @@ function App() {
               e.target.dataset.idx || e.target.parentElement?.dataset.idx
             ),
           });
-        } else if (e.ctrlKey) {
+        } else if (e.ctrlKey || e.metaKey) {
           dispatch({
             type: ObjectActionType.TOGGLE_SINGLE,
             id: Number(
