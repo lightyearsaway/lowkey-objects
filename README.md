@@ -1,1 +1,1 @@
-View the live version at [https://xenodochial-bartik-94f34b.netlify.app](https://xenodochial-bartik-94f34b.netlify.app).
+View the live version at [https://lowkey-objects.netlify.app](https://lowkey-objects.netlify.app).
